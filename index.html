@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <input type="text" id="input">
+    <div id="app"></div>
+    <script type="module">
+      import Vue from '/lib/Vue/index.js'
+      const vm = new Vue({
+        data () {
+          return {
+            name: 'york'
+          }
+        },
+        el: '#app'
+      })
+      document.querySelector('#input').addEventListener('input', (e) => {
+        vm._data.name = e.target.value
+      })
+    </script>
+  </body>
+</html>
