@@ -5,23 +5,49 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <style>
+      #my-node {
+        border: 1px solid red;
+      }
+      .son-1 {
+        color: blue;
+      }
+      .son-2 {
+        color: pink;
+      }
+    </style>
   </head>
   <body>
-    <input type="text" id="input">
+    <input type="text" id="input" />
     <div id="app"></div>
+    <!-- <div id="my-node">
+      <div class="son-1">1</div>
+      <div class="son-2">2</div>
+    </div> -->
     <script type="module">
-      import Vue from '/lib/Vue/index.js'
+      import Vue from "/lib/Vue/platforms/web/runtime-with-compiler.js";
+      import domtoimage from 'dom-to-image';
       const vm = new Vue({
+        el: '#app',
+        template: '<div><span></span><i>{{name}}</i></div>',
         data () {
           return {
-            name: 'york'
+            name: '渲染完成'
           }
-        },
-        el: '#app'
+        }
       })
-      document.querySelector('#input').addEventListener('input', (e) => {
-        vm._data.name = e.target.value
-      })
+      console.log(vm.name, 'name')
+      // var node = document.getElementById('my-node');
+
+      // domtoimage.toPng(node)
+      //   .then(function (dataUrl) {
+      //       var img = new Image();
+      //       img.src = dataUrl;
+      //       document.body.appendChild(img);
+      //   })
+      //   .catch(function (error) {
+      //       console.error('oops, something went wrong!', error);
+      //   });
     </script>
   </body>
 </html>
