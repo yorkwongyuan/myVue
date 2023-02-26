@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <input type="text" id="input" />
+    <input type="text" id="input" onchange="handleInput()"/>
     <div id="app"></div>
     <!-- <div id="my-node">
       <div class="son-1">1</div>
@@ -37,6 +37,12 @@
         }
       })
       console.log(vm.name, 'name')
+      setTimeout(() => {
+        vm.name = '123'
+      }, 2000)
+      function handleInput (value) {
+        console.log('🚀 ~ file: index.html:41 ~ handleInput ~ value:', value)
+      }
       // var node = document.getElementById('my-node');
 
       // domtoimage.toPng(node)
