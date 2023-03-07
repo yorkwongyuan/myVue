@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <input type="text" id="input" onchange="handleInput()"/>
+    <!-- <input type="text" id="input" onchange="handleInput()"/> -->
     <div id="app"></div>
     <!-- <div id="my-node">
       <div class="son-1">1</div>
@@ -29,10 +29,10 @@
       import domtoimage from 'dom-to-image';
       const vm = new Vue({
         el: '#app',
-        template: '<div><span></span><i>{{name}}</i></div>',
+        template: '<div><input age="12" v-model="name"/><i>{{name}}</i></div>',
         data () {
           return {
-            name: '渲染完成'
+            name: 'jack'
           }
         }
       })
