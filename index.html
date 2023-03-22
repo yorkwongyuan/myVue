@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>响应式测试页面</title>
   </head>
   <body>
     <input type="text" id="input">
     <div id="app"></div>
     <script type="module">
       import Vue from '/lib/Vue/index.js'
+      import Watcher from './lib/Vue/core/observer/watcher.js'
       const vm = new Vue({
         data () {
           return {
@@ -20,8 +21,12 @@
         el: '#app'
       })
       document.querySelector('#input').addEventListener('input', (e) => {
-        vm._data.name = e.target.value
+        vm.name = e.target.value
       })
+      // new Watcher(vm, (_vm) => {
+      //   let name = _vm.name
+      //   console.log('🚀 被监听的name的最新值:', name)
+      // })
     </script>
   </body>
 </html>
