@@ -18,21 +18,29 @@
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">app</div>
+    <!-- <div id="mygraph">mygraph</div> -->
     <script type="module">
       import Vue from "/lib/Vue/platforms/web/runtime-with-compiler.js";
-      import domtoimage from 'dom-to-image';
       const vm = new Vue({
         el: '#app',
-        template: '<div><input age="12" v-model="name"/>' +
-          '<div>{{name}}</div><br><div>{{name}}</div><input age="12" v-model="name"/></div>',
-        // template: `<div name="jack">123</div>`,
+        template: `
+        <div><input v-model="name"/>
+          {{name}}
+          <p><span key="一">1</span><span key="二">2</span><span key="三">3</span><span key="四">4</span><span key="五">5</span></p>
+        </div>
+        `,
         data () {
           return {
-            name: 'jack'
+            name: 'jack',
+            age: 18
           }
         }
       })
-    </script>
+      setTimeout(() => {
+        vm.name = 1
+        vm.name = 2
+      }, 2000)
+     </script>
   </body>
 </html>
